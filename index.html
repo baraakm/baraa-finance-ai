@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090a12"><meta name="description" content="Baraa Finance AI - مساعدك المالي الذكي">
+<title>Baraa Finance AI</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<style>
+:root{--bg:#080a12;--panel:#111522;--panel2:#171d2d;--line:#252d43;--muted:#929bb1;--text:#f4f5fb;--purple:#8b6cff;--purple2:#6245d8;--green:#53d6a2;--red:#ff718b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% -10%,#24204a 0,transparent 34%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;min-height:100vh}
+button,input,textarea{font:inherit}button{cursor:pointer}.wrap{max-width:1050px;margin:auto;padding:18px 15px 35px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 22px}.brand{display:flex;align-items:center;gap:12px}.brand img{width:48px;height:48px;filter:drop-shadow(0 0 18px #7659ff55)}h1{font-size:18px;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:3px}.pill{border:1px solid #34304e;color:#c5b8ff;border-radius:99px;padding:7px 10px;font-size:11px;background:#17152a}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.panel{background:linear-gradient(145deg,#151a29,#0f1320);border:1px solid var(--line);border-radius:19px;padding:16px;box-shadow:0 12px 30px #0002}.statlabel{font-size:12px;color:var(--muted)}.stat{font-size:25px;font-weight:750;margin:9px 0 2px;letter-spacing:-.5px}.green{color:var(--green)}.purple{color:#b8a7ff}.small{font-size:11px;color:var(--muted)}.section{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 11px}.section h2{font-size:15px;margin:0}.chatpanel{padding:0;overflow:hidden}.chathead{padding:15px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.botmark{width:35px;height:35px;border-radius:12px;background:linear-gradient(140deg,#9c80ff,#5032b7);display:grid;place-items:center;font-weight:900}.chatbody{height:min(47vh,440px);min-height:270px;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:12px}.bubble{max-width:88%;padding:12px 14px;border-radius:16px;background:#1a2030;color:#e9eaf2;line-height:1.65;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}.bubble.user{align-self:flex-start;background:linear-gradient(135deg,#6349d1,#4934a2);border-bottom-left-radius:5px}.bubble.ai{align-self:flex-end;border:1px solid #293149;border-bottom-right-radius:5px}.bubble .time{display:block;color:#aab0c2;font-size:10px;margin-top:5px}.composer{padding:12px;border-top:1px solid var(--line);background:#0e1220}.tools{display:flex;align-items:center;gap:8px;margin-bottom:9px;flex-wrap:wrap}.toolbtn,.send{border:1px solid #343b54;background:#191f30;color:#d8d9e4;border-radius:12px;padding:9px 12px;font-size:12px}.toolbtn.active{background:#382b68;border-color:#8b6cff;color:white}.send{background:linear-gradient(135deg,#9275ff,#6546d9);border:0;color:white;font-weight:700;padding:11px 17px}.entry{display:flex;gap:8px}.entry textarea{resize:none;min-height:46px;max-height:120px;flex:1;min-width:0;background:#171d2c;border:1px solid #303950;border-radius:14px;color:white;padding:12px;outline:none}.entry textarea:focus{border-color:#8b6cff}.hint{font-size:10px;color:#79839a;margin:9px 3px 0}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.list{display:flex;flex-direction:column;gap:9px}.tx{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #222a3d}.tx:last-child{border:0}.txname{font-size:12px}.txmeta{font-size:10px;color:var(--muted);margin-top:4px}.txamt{font-size:12px;font-weight:700;white-space:nowrap}.empty{font-size:12px;color:var(--muted);padding:14px 0}.login{position:fixed;inset:0;background:#080a12ee;display:grid;place-items:center;padding:20px;z-index:10}.loginbox{width:min(100%,360px);text-align:center}.loginbox img{width:80px}.loginbox input{width:100%;margin:16px 0 10px;padding:13px;background:#171d2c;color:white;border:1px solid var(--line);border-radius:12px}.loginbox button{width:100%}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#252b3d;border:1px solid #454d65;padding:11px 16px;border-radius:12px;font-size:12px;display:none;z-index:20}.footer{text-align:center;color:#65708a;font-size:10px;margin:22px 0 0}
+@media(max-width:650px){.grid{grid-template-columns:1fr 1fr}.grid .panel:first-child{grid-column:1/-1}.two{grid-template-columns:1fr}.wrap{padding:13px 12px 28px}.chatbody{height:43vh}.stat{font-size:22px}}
+</style></head>
+<body>
+<div class="login" id="login">
+ <div class="panel loginbox"><img src="/logo.svg"><h2>Baraa Finance AI</h2><p class="sub">مساعدك المالي الشخصي</p><input id="pass" type="password" placeholder="كلمة مرور التطبيق" autocomplete="current-password"><button class="send" onclick="login()">دخول آمن</button><p class="hint" id="loginerr"></p></div>
+</div>
+<div class="wrap">
+ <header class="top"><div class="brand"><img src="/logo.svg"><div><h1>Baraa Finance AI</h1><div class="sub">مديرك المالي الذكي</div></div></div><span class="pill" id="clock">عمّان • --:--</span></header>
+ <div class="grid">
+  <div class="panel"><div class="statlabel">صافي المسجل</div><div class="stat" id="net">0.00 د.أ</div><div class="small">دخل + استرجاع − مصروف − توفير</div></div>
+  <div class="panel"><div class="statlabel">مصاريف آخر 7 أيام</div><div class="stat" id="weekExpense">0.00</div><div class="small">دينار أردني</div></div>
+  <div class="panel"><div class="statlabel">المدخرات المسجلة</div><div class="stat green" id="saved">0.00</div><div class="small">لا تمثل رصيداً بنكياً</div></div>
+ </div>
+ <div class="section"><h2>محادثتك مع المساعد</h2><span class="small">كتابة وصوت وملفات</span></div>
+ <section class="panel chatpanel">
+  <div class="chathead"><div style="display:flex;align-items:center;gap:10px"><div class="botmark">B</div><div><b style="font-size:13px">Baraa AI</b><div class="sub" id="status">جاهز للمساعدة</div></div></div><button class="toolbtn" onclick="loadAll()">↻ تحديث</button></div>
+  <div class="chatbody" id="chat"></div>
+  <div class="composer">
+   <div class="tools">
+    <button class="toolbtn" id="mic" onclick="voiceInput()">🎙️ تحدث</button>
+    <button class="toolbtn" onclick="document.getElementById('file').click()">＋ ملف / صورة</button>
+    <button class="toolbtn" onclick="toggleSpeech()">🔊 <span id="speechLabel">الصوت مفعّل</span></button>
+    <input id="file" type="file" accept="image/*,.pdf,.txt,.csv" hidden onchange="uploadFile(this.files[0])">
+   </div>
+   <div class="entry"><textarea id="msg" rows="1" placeholder="مثلاً: صرفت 5 دنانير تكسي اليوم..."></textarea><button class="send" onclick="send()">إرسال</button></div>
+   <div class="hint">لا ترسل بيانات بطاقتك أو كلمات المرور. التحويلات البنكية غير مفعّلة في هذه النسخة.</div>
+  </div>
+ </section>
+ <div class="section"><h2>آخر العمليات</h2><span class="small">تُحدّث بعد التسجيل</span></div>
+ <div class="panel"><div class="list" id="recent"><div class="empty">ما في عمليات مسجلة بعد.</div></div></div>
+ <div class="section"><h2>التقرير الأسبوعي</h2><span class="pill">كل يوم أحد</span></div>
+ <div class="two">
+  <div class="panel"><div class="statlabel">إجمالي مصاريف الأسبوع</div><div class="stat" id="reportExpense">0.00 د.أ</div><div class="small" id="reportRange">آخر 7 أيام</div></div>
+  <div class="panel"><div class="statlabel">ملخص المساعد</div><p class="small" style="line-height:1.8">اسأل المساعد: «اعطيني تقرير الأسبوع» أو «كم صرفت على الأكل هذا الشهر؟» ليحلل العمليات المسجلة.</p></div>
+ </div>
+ <div class="footer">Baraa Finance AI • بياناتك المالية التجريبية لا تتصل بالبنك</div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+let speechOn=true, recognition=null, busy=false;
+const $=id=>document.getElementById(id);
+function toast(t){$('toast').textContent=t;$('toast').style.display='block';setTimeout(()=>$('toast').style.display='none',2800)}
+function clock(){try{$('clock').textContent=new Intl.DateTimeFormat('ar-JO',{timeZone:'Asia/Amman',weekday:'short',hour:'2-digit',minute:'2-digit'}).format(new Date())}catch(e){}}
+setInterval(clock,30000);clock();
+async function api(url,opts={}){let r=await fetch(url,opts);let d=await r.json().catch(()=>({error:'استجابة غير مفهومة'}));if(!r.ok)throw Error(d.error||'حدث خطأ');return d}
+async function login(){try{await api('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('pass').value})});$('login').style.display='none';loadAll()}catch(e){$('loginerr').textContent=e.message}}
+$('pass').addEventListener('keydown',e=>{if(e.key==='Enter')login()});
+function addBubble(text,who='ai'){let b=document.createElement('div');b.className='bubble '+who;b.textContent=text;let tm=document.createElement('span');tm.className='time';tm.textContent=new Intl.DateTimeFormat('ar-JO',{hour:'2-digit',minute:'2-digit'}).format(new Date());b.appendChild(tm);$('chat').appendChild(b);$('chat').scrollTop=$('chat').scrollHeight}
+async function loadAll(){try{let [s,m]=await Promise.all([api('/api/summary'),api('/api/messages')]);let t=s.totals||{},w=s.week||{};let net=(t.income||0)+(t.refund||0)-(t.expense||0)-(t.saving||0);$('net').textContent=net.toFixed(2)+' د.أ';$('weekExpense').textContent=(w.expense||0).toFixed(2);$('saved').textContent=(t.saving||0).toFixed(2);$('reportExpense').textContent=(w.expense||0).toFixed(2);$('reportRange').textContent='من '+(new Date(Date.now()-6*86400000)).toLocaleDateString('ar-JO')+' إلى '+new Date().toLocaleDateString('ar-JO');$('chat').innerHTML='';if(!m.length)addBubble('أهلاً! أنا Baraa AI. احكيلي عن مصاريفك أو دخلك، وبساعدك ترتبهم.');else m.forEach(x=>addBubble(x.content,x.role==='user'?'user':'ai'));$('recent').innerHTML='';if(!s.recent.length)$('recent').innerHTML='<div class="empty">ما في عمليات مسجلة بعد.</div>';s.recent.forEach(x=>{let row=document.createElement('div');row.className='tx';let left=document.createElement('div');let n=document.createElement('div');n.className='txname';n.textContent=(x.category||'أخرى')+' · '+(x.description||'عملية مالية');let meta=document.createElement('div');meta.className='txmeta';meta.textContent=x.tx_date+' · '+({expense:'مصروف',income:'دخل',refund:'استرجاع',transfer:'تحويل داخلي',saving:'توفير'}[x.kind]||x.kind);left.append(n,meta);let amt=document.createElement('div');amt.className='txamt '+(x.kind==='income'||x.kind==='refund'?'green':'');amt.textContent=(x.kind==='expense'?'-':'+')+Number(x.amount).toFixed(2)+' د.أ';row.append(left,amt);$('recent').append(row)})}catch(e){if(e.message.includes('تسجيل الدخول'))$('login').style.display='grid';else toast(e.message)}}
+async function send(){if(busy)return;let text=$('msg').value.trim();if(!text)return;$('msg').value='';addBubble(text,'user');busy=true;$('status').textContent='يفكر...';try{let d=await api('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text})});addBubble(d.reply);if(speechOn)speak(d.reply);await loadAll()}catch(e){addBubble(e.message);toast(e.message)}finally{busy=false;$('status').textContent='جاهز للمساعدة'}}
+$('msg').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});
+function speak(text){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='ar-JO';u.rate=1;let voices=speechSynthesis.getVoices();let v=voices.find(x=>x.lang.toLowerCase().startsWith('ar'));if(v)u.voice=v;speechSynthesis.speak(u)}
+function toggleSpeech(){speechOn=!speechOn;$('speechLabel').textContent=speechOn?'الصوت مفعّل':'الصوت متوقف';toast(speechOn?'تم تفعيل الرد الصوتي':'تم إيقاف الرد الصوتي')}
+function voiceInput(){let SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast('التعرف على الصوت غير مدعوم هنا. جرّب Chrome.');return}if(recognition){recognition.stop();recognition=null}recognition=new SR();recognition.lang='ar-JO';recognition.interimResults=false;recognition.maxAlternatives=1;$('mic').classList.add('active');$('status').textContent='أسمعك...';recognition.onresult=e=>{$('msg').value=e.results[0][0].transcript;send()};recognition.onerror=()=>toast('ما قدرت أسمعك، جرّب مرة ثانية');recognition.onend=()=>{$('mic').classList.remove('active');$('status').textContent='جاهز للمساعدة';recognition=null};recognition.start()}
+async function uploadFile(file){if(!file)return;addBubble('تم اختيار الملف: '+file.name,'user');$('status').textContent='يحلل الملف...';let fd=new FormData();fd.append('file',file);fd.append('question','حلل هذا الملف أو الصورة بالعربية. إذا كان إيصالاً، استخرج المبلغ والتاريخ والتصنيف إن كانت واضحة. لا تسجل عملية مالية تلقائياً.');try{let d=await api('/api/upload',{method:'POST',body:fd});addBubble(d.reply);if(speechOn)speak(d.reply)}catch(e){addBubble(e.message);toast(e.message)}finally{$('status').textContent='جاهز للمساعدة';$('file').value=''}}
+loadAll();
+</script></body></html>

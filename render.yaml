@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: baraa-finance-ai
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: APP_PASSWORD
+        sync: false
+      - key: FLASK_SECRET
+        generateValue: true
+      - key: GEMINI_MODEL
+        value: gemini-3.8-flash
